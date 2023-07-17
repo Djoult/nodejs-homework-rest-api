@@ -1,17 +1,17 @@
 const defaultErrorMessages = {
-    400: 'Bad request',
-    401: 'Unauthorized',
-    403: 'Forbidden',
-    404: 'Not found',
-    409: 'Conflict',
+  400: "Bad request",
+  401: "Unauthorized",
+  403: "Forbidden",
+  404: "Not found",
+  409: "Conflict",
 };
 
 const HttpError = (status, message = defaultErrorMessages[status]) => {
-    const error = new Error(message);
+  const error = new Error(message);
 
-    error.status = status;
+  error.status = status;
 
-    return error;
+  return error;
 };
 
-module.exports = HttpError;
+export default HttpError;

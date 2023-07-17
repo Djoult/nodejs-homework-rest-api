@@ -1,7 +1,7 @@
-const fs = require("fs/promises");
-const path = require("path");
-const generateId = require("../helpers/generateId");
-const HttpError = require("../helpers/HttpError");
+import fs from "fs/promises";
+import path from "path";
+import HttpError from "../helpers/HttpError.js";
+import { nanoid } from "nanoid";
 
 const contactsPath = path.resolve("models", "contacts.json");
 
@@ -37,7 +37,7 @@ const addContact = async (body) => {
   const allContacts = await listContacts();
 
   const newContact = {
-    id: await generateId(),
+    id: nanoid(),
     ...body,
   };
 
@@ -65,7 +65,7 @@ const updateContact = async (contactId, body) => {
   return updatedContact;
 };
 
-module.exports = {
+export default {
   listContacts,
   getContactById,
   removeContact,

@@ -1,7 +1,7 @@
-const express = require("express");
-const ctrl = require("../../controllers/contacts");
-const validateBody = require("../../middlewares/validateBody");
-const { addSchema } = require("../../schemas/contacts");
+import express from "express";
+import ctrl from "../../controllers/contacts.js";
+import validateBody from "../../middlewares/validateBody.js";
+import addSchema from "../../schemas/contacts.js";
 
 const router = express.Router();
 
@@ -15,4 +15,4 @@ router.delete("/:contactId", ctrl.deleteContactById);
 
 router.put("/:contactId", validateBody(addSchema), ctrl.updateContactById);
 
-module.exports = router;
+export default router;

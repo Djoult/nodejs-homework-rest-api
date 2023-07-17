@@ -1,6 +1,6 @@
-const dataAPI = require("../models/contacts");
-const HttpError = require("../helpers/HttpError");
-const ctrlWrapper = require("../helpers/ctrlWrapper");
+import dataAPI from "../models/contacts.js";
+import HttpError from "../helpers/HttpError.js";
+import ctrlWrapper from "../helpers/ctrlWrapper.js";
 
 const getAllContacts = async (req, res) => {
   const result = await dataAPI.listContacts();
@@ -44,7 +44,7 @@ const updateContactById = async (req, res) => {
   res.json(result);
 };
 
-module.exports = {
+export default {
   getAllContacts: ctrlWrapper(getAllContacts),
   getContactById: ctrlWrapper(getContactById),
   addContact: ctrlWrapper(addContact),
