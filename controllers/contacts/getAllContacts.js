@@ -1,4 +1,4 @@
-import { Contact } from "../../models";
+import { Contact } from "../../models/index.js";
 
 const getAllContacts = async (req, res) => {
   const result = await Contact.find({}, "-createdAt -updatedAt");
