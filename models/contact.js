@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-import { handleSaveError, handleUpdateValidate } from "./hooks.js";
+import { handleSaveError, handleUpdateValidate } from "../hooks/index.js";
 
 const contactSchema = new Schema(
   {
@@ -18,7 +18,13 @@ const contactSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
   },
+
   { versionKey: false, timestamps: true }
 );
 
