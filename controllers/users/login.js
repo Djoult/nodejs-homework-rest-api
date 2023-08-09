@@ -1,15 +1,13 @@
-// Libs
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-// Models
+
 import { User } from "../../models/index.js";
-// Helpers
+
 import { HttpError } from "../../helpers/index.js";
 import "dotenv/config";
 const { JWT_SECRET_KEY } = process.env;
 
 const login = async (req, res) => {
-  console.log(JWT_SECRET_KEY);
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
