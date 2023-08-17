@@ -5,7 +5,7 @@ import { HttpError } from "../helpers/index.js";
 
 import { allowedImagesMimeTypes } from "../constants/constants.js";
 
-const tempDirPath = path.resolve("temp");
+const tempDirPath = path.resolve("tmp");
 
 const storage = multer.diskStorage({
   destination: tempDirPath,
